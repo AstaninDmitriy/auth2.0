@@ -2,6 +2,7 @@ from sqlalchemy.ext.asyncio import create_async_engine, async_sessionmaker
 from core.config import settings
 from sqlalchemy.orm import sessionmaker
 
+# Асинхронный БД движок
 class DataBaseHelper:
     def __init__(self, url: str, echo: bool=False):
         self.engine = create_async_engine(
@@ -15,7 +16,7 @@ class DataBaseHelper:
             expire_on_commit=False
             )
         
-db_helpeer = DataBaseHelper(
+db_helper = DataBaseHelper(
      url=settings.db_url,
     echo=settings.db_echo,
 )
