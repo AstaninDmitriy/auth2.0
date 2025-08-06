@@ -1,6 +1,6 @@
 from sqlalchemy.ext.asyncio import create_async_engine, async_sessionmaker, async_scoped_session, AsyncSession
 from asyncio import current_task
-from app.core.config import settings
+from core.config import settings
 from sqlalchemy.orm import sessionmaker
 
 # Асинхронный БД движок
@@ -10,6 +10,7 @@ class DataBaseHelper:
             url=url,
             echo=echo,
         )
+        print(self.engine)
         self.session_factory = async_sessionmaker(
             bind=self.engine,
             autoflush=False,
