@@ -7,6 +7,6 @@ class Base(DeclarativeBase):
 
 # Декоратор который присваивает имя таблице в БД на основе имя класса
     @declared_attr
-    def __tablenamr__(cls) -> str:
+    def __tablename__(cls) -> str:
         return f"{cls.__name__.lower()}s"
     
