@@ -16,14 +16,16 @@ async def lifespan(app: FastAPI):
 
         yield
 
+
 app = FastAPI(
     title="MicroShop",
     lifespan=lifespan
 )
+
+
 app.include_router(items_router)
 app.include_router(users_router)
 app.include_router(router=router_v1, prefix=settings.api_v1_prefix)
-
 
 
 if __name__ == "__main__":
